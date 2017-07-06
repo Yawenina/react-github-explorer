@@ -1,0 +1,12 @@
+#nav-menu-open-checkbox {
+  display: none;
+}
+
+#nav-menu-open-checkbox:checked ~ .nav-menu{
+  opacity: 1;
+  transform: translateZ(0);
+}
+
+#nav-menu-open-checkbox:checked ~ .main-content{
+  transform: translate3d(84%, 0, 0);
+}

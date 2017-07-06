@@ -1,0 +1,25 @@
+.header {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 3px 5px 0 rgba(15,31,52,.4);
+}
+
+.brand-logo,
+.notification-icon {
+  height: 60px;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.brand-logo {
+  width: 74px;
+  background-size: contain;
+  background-image: url('/assets/github-logo.png');
+}
+
+.notification-icon {
+  width: 50px;
+  background-image: url('/assets/notification-icon.png');
+  background-size: 15px 17px;
+}

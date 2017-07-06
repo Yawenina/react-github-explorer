@@ -7,7 +7,7 @@ import App from './App';
 const Root = () => {
   return (
     <Router>
-      <Route component={App}/>
+      <Route path="/" component={App} />
     </Router>
   );
 };
