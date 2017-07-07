@@ -4,13 +4,12 @@ import classNames from 'classnames';
 import './style.css';
 
 const HamburgerIcon = props => {
-  const backState = props.pathname.split('/').length >= 4;
   const navIconClass = classNames('nav-icon', {
-    'nav-icon--back': backState
+    'nav-icon--back': props.backState
   });
 
   function clickHandler() {
-    if (backState) {
+    if (props.backState) {
       props.history.goBack();
     } else {
       props.toggleOpenNavMenu();

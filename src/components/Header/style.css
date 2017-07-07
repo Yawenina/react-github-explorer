@@ -3,6 +3,13 @@
   display: flex;
   justify-content: space-between;
   box-shadow: 0 3px 5px 0 rgba(15,31,52,.4);
+  background: #0f2035;
+  transition: background-color .3s;
+}
+
+.header.transparent {
+  background: #224365;
+  box-shadow: none;
 }
 
 .brand-logo,

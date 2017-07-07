@@ -60,11 +60,12 @@ class NavMenu extends Component {
     this.handleSearchTextChange(event);
   }
 
-  navigateToUserPage(e) {
+  navigateToUserPage(path) {
     // close nav menu
     this.props.toggleOpenNavMenu();
+    this.props.closeFullNavMenu();
     // navigate to user page
-    this.props.history.push(e.target.href);
+    this.props.history.push(path);
   }
 
   render() {
@@ -93,7 +94,7 @@ class NavMenu extends Component {
                 transitionEnter={false}
                 transitionLeave={false}>
                 {(this.state.users.length > 0)
-                  ? this.state.users.map(user => <UserItem user={user} key={user.id} onClick={this.navigateToUserPage}/>)
+                  ? this.state.users.map(user => <UserItem user={user} key={user.id} onClick={() => this.navigateToUserPage(`/user/${user.login}`)}/>)
                   : <p>Hmmm...that user can not be found on Github.</p>
 }
               </ReactCSSTransitionGroup>

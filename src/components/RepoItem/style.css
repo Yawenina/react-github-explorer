@@ -1,0 +1,45 @@
+.repo-item {
+  text-decoration: none;
+}
+
+.name {
+  font-size: 1.8rem;
+  color: #5c6877;
+  letter-spacing: -.2px;
+  line-height: 1.3;
+  margin-bottom: 7px;
+}
+
+.description {
+  line-height: 1.5;
+  color: #77818e;
+  margin-top: 5px;
+  word-wrap: break-word;
+}
+
+.update {
+  font-size: 1.3rem;
+  color: #aeb6c0;
+  margin-top: 5px;
+}
+
+.repo-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.repo-stats .language {
+  color: #8f9aa8;
+  letter-spacing: .3px;
+  font-weight: bold;
+}
+
+.repo-stat-block {
+  color: #77818e;
+}
+
+.repo-stat-block .fa {
+  margin-left: 1rem;
+  margin: 0 3px 0 1rem;
+}

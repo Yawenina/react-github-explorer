@@ -5,11 +5,15 @@ import MenuOpenHandler from './components/MenuOpenHandler/MenuOpenHandler';
 import MenuFullHandler from './components/MenuFullHandler/MenuFullHandler';
 import NavMenu from './components/NavMenu/NavMenu';
 import Header from './components/Header/Header';
+import LoadingBar from './components/LoadingBar/LoadingBar';
 import MainContent from './components/MainContent/MainContent';
 
 class App extends Component {
   constructor(props) {
     super(props);
+    this.showLoading = true;
+    this.done = false;
+    this.failed = false;
     this.state = {
       open: false,
       full: false
@@ -38,6 +42,15 @@ class App extends Component {
     this.setState({full: false});
   }
 
+  loadingComplete() {
+    this.showLoading = false;
+    this.done = true;
+  }
+
+  loadingFailed() {
+    this.failed = true;
+  }
+
   render() {
     return (
       <div>
@@ -55,7 +68,12 @@ class App extends Component {
             location={this.props.location}
             history={this.props.history}
           />
-          <MainContent toggleOpenNavMenu={this.toggleOpenNavMenu}/> 
+          {this.showLoading ? <LoadingBar done={this.done} failed={this.failed}/> : null}
+          <MainContent 
+            toggleOpenNavMenu={this.toggleOpenNavMenu}
+            loadingComplete={this.loadingComplete}
+            loadingFailed={this.loadingFailed}
+          /> 
         </div>
       </div>
     );
