@@ -15,4 +15,5 @@ const PropsRoute = ({ component, ...rest }) => {
     }}/>
   );
 }
+
 export default PropsRoute;

@@ -1,0 +1,15 @@
+.sidebar.open .nav-menu{
+  opacity: 1;
+  transform: translateZ(0);
+}
+
+.sidebar.open .header,
+.sidebar.open ~ .main-content{
+  transform: translate3d(84%, 0, 0);
+}
+
+.sidebar.full .header,
+.sidebar.full ~ .main-content
+{
+  transform: translate3d(100%, 0, 0);
+}

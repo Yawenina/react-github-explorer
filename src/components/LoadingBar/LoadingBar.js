@@ -10,6 +10,8 @@ class LoadingBar extends Component {
     this.state = {
       one: false,
       two: false,
+      three: false,
+      failed: false
     }
   }
 
@@ -18,6 +20,15 @@ class LoadingBar extends Component {
     this.timer = setTimeout(() => { this.setState({ two: true })}, 500);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.done) {
+      this.setState({ three: true });
+    }
+    if (nextProps.failed) {
+      this.setState({ failed: true });
+    }
+  }
+  
   componentWillUnmount() {
     this.timer && clearTimeout(this.timer);
   } 
@@ -27,8 +38,8 @@ class LoadingBar extends Component {
       <div className={classNames('loading-bar', {
         one: this.state.one,
         two: this.state.two,
-        three: this.props.done,
-        failed: this.props.failed
+        three: this.state.done,
+        failed: this.state.failed
       })}>  
       </div>
     );
