@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 
 import Sidebar from './components/Sidebar/Sidebar';
 import MainContent from './components/MainContent/MainContent';
@@ -18,7 +17,5 @@ class App extends Component {
     );
   }
 }
-
-App.propTypes = {};
 
 export default App;

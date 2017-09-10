@@ -1,6 +1,8 @@
 .nav-menu {
+  min-height: 100%;
+  height: 100vh;
   background: #3d536d;
-  min-height: 100vh;
+  /*min-height: 100vh;*/
   opacity: 0;
   transform: translate3d(-150px, 0, 0);
   transition: transform .3s cubic-bezier(.7,0,.25,1), opacity .4s;
@@ -12,6 +14,10 @@
   padding: 1.8rem 1rem;
 }
 
+.search-bar--dark {
+  background: #2c4052;
+}
+
 .search-bar .search {
   flex: 2;
 }
@@ -20,6 +26,16 @@
   color: #fff;
   opacity: .5;
   font-size: 1.4rem;
+}
+
+.user-list {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .list-appear,

@@ -6,7 +6,6 @@ import './style.css';
 import UserPage from '../UserPage/UserPage';
 import RepoList from '../RepoList/RepoList';
 import RepoDetail from '../RepoDetail/RepoDetail';
-import PropsRoute from '../PropsRoute/PropsRoute';
 
 // function MergeProps(Component, {...rest}) {
 //   return <Route path="/user/:username" render={(routeProps) => 
@@ -16,6 +15,7 @@ import PropsRoute from '../PropsRoute/PropsRoute';
 // }
 
 const MainContent = (props) => (
+// TODO : move LoadingBar to here ?
   <PageTransition>
     <Switch>
       <Route path="/user/:username/repos/:repoName" component={RepoDetail}/>

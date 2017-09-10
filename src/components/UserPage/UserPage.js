@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import axios from 'axios';
@@ -24,7 +23,6 @@ class UserPage extends Component {
   }
 
   componentDidMount() {
-    console.log('user mounted', Date.now());
     if (!this.username) {
       this
         .getRandomUser()
@@ -33,25 +31,6 @@ class UserPage extends Component {
       this.loadUser();
     }
   }
-  
-  // componentWillReceiveProps(nextProps) {
-  //   console.log(nextProps.match.params.username);
-  //   console.log(this.username);
-  //   if (nextProps.match.params.username !== this.username) {
-  //     this.username = nextProps.match.params.username;
-  //     this.loadUser();
-  //   }
-  // }
-
-  // componentWillUnmount() {
-  //   console.log('unmount', Date.now())
-  // }
-
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   console.log('should');
-  //   return true;
-  // }
-  
   
   getRandomUser() {
     return axios
@@ -131,14 +110,12 @@ class UserPage extends Component {
 }
           </ReactCSSTransitionGroup>
         </div>
-        <Link to={`/user/${this.state.profile.login}/repos`} className="view-all-btn">
+        <Link to={`/user/${this.state.profile.login}/repos`} className="view-all-btn bottom-btn">
           VIEW ALL REPOS
         </Link>
       </div>
     );
   }
 }
-
-UserPage.propTypes = {};
 
 export default UserPage;

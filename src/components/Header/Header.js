@@ -25,7 +25,6 @@ class Header extends Component {
   }
   
   onContentScroll() {
-    console.log('scroll');
     this.scrollSection = document.querySelector('.scroll-section');
     this.wait = false;
     this.scrollSection.addEventListener('scroll', () => {

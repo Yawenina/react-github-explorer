@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const RepoDetail = props => {
   return (
@@ -7,10 +6,6 @@ const RepoDetail = props => {
       RepoDetail
     </div>
   );
-};
-
-RepoDetail.propTypes = {
-  
 };
 
 export default RepoDetail;

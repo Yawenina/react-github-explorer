@@ -3,14 +3,32 @@
   border: 0;
   box-sizing: border-box;
 }
+
 html {
   font-size: 10px;
+  overflow: hidden;
 }
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Open Sans', sans-serif;
   font-size: 1.4rem;
+  overflow: hidden;
+}
+
+.bottom-btn {
+  display: block;
+  margin: 0 auto;
+  width: 16.5rem;
+  height: 4rem;
+  border: .5px solid #aeb6c0;
+  border-radius: 8px;
+  color: #8f9aa8;
+  text-align: center;
+  line-height: 4rem;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .transition-wrapper {

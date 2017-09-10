@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import axios from 'axios';
 import {debounce} from 'lodash';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
@@ -18,6 +17,7 @@ class NavMenu extends Component {
       search: false
     }
     this.navigateToUserPage = this.navigateToUserPage.bind(this);
+    this.onUserListScroll = this.onUserListScroll.bind(this);
     // debounce user input
     this.handleSearchTextChange = debounce(this.handleSearchTextChange.bind(this), 500);
     this.onTextChange = this
@@ -27,8 +27,9 @@ class NavMenu extends Component {
 
   componentDidMount() {
     this.fetchUsers();
+    this.onUserListScroll();
   }
-
+  
   fetchUsers() {
     this.setState({search: true});
 
@@ -68,11 +69,30 @@ class NavMenu extends Component {
     this.props.history.push(path);
   }
 
+  onUserListScroll() {
+    this.scrollSection = document.querySelector('.user-list');
+    this.wait = false;
+    this.scrollSection.addEventListener('scroll', () => {
+      this.lastScrollTop = this.scrollSection.scrollTop;
+      if (this.wait === false) {
+        window.requestAnimationFrame(() => {
+          if (this.lastScrollTop > 0) {
+            this.refs.searchBar.classList.add('search-bar--dark');
+          } else {
+            this.refs.searchBar.classList.remove('search-bar--dark');
+          }
+          this.wait = false;
+        })
+        this.wait = true;
+      }
+    })
+  }
+
   render() {
     return (
       <div className="nav-menu">
 
-        <div className="search-bar">
+        <div className="search-bar" ref="searchBar">
           <SearchInput
             buttonText="icon"
             placeholder="Search by username..."
@@ -83,7 +103,7 @@ class NavMenu extends Component {
           </div>
         </div>
 
-        <div className="user-list">
+        <div className="user-list" onScroll={this.onUserListScroll}>
           {this.state.search
             ? <Loading/>
             : (
@@ -105,7 +125,5 @@ class NavMenu extends Component {
     );
   }
 }
-
-NavMenu.propTypes = {};
 
 export default NavMenu;

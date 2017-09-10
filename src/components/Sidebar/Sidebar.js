@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import './style.css';
@@ -64,7 +63,5 @@ class SideBar extends Component {
     );
   }
 }
-
-SideBar.propTypes = {};
 
 export default SideBar;
